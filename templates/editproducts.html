@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prodcts Form</title>
+    <link rel="stylesheet" href="{% static 'css/addproducts.css' %}">
+</head>
+<body>
+    <form action="/updateproducts/{{ep.id}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+        <div class="container">
+          <h1>Products Details</h1>
+          <input type="text" name="ep_code" id="ep_code" value="{{ep.code}}" placeholder="Product Code" required>
+          <input type="text" id="ep_name" placeholder="Product Name" value="{{ep.name}}" name="ep_name" required>
+          <input type="number" id="ep_price" placeholder="Price" name="ep_price" value="{{ep.price}}" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="number" id="ep_total" placeholder="Total (Include tax)" value="{{ep.total}}" name="ep_total" required><br><br>
+          <input type="text" id="ep_brand" name="ep_brand" placeholder="Brand" value="{{ep.brand}}" required>
+          <input type="text" id="ep_category" name="ep_category" value="{{ep.category}}" placeholder="Category" required>
+          <input type="date" id="ep_created" name="ep_created" value="{{ep.created}}" placeholder="Created At" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="date" id="ep_updated" name="ep_updated" value="{{ep.updated}}" placeholder="Updated At" required><br><br>
+          <input type="number" id="ep_opening_stock" value="{{ep.opening_stock}}" name="ep_opening_stock" placeholder="Opening Stock" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="number" id="ep_current_stock" value="{{ep.current_stock}}" name="ep_current_stock" placeholder="Current Stock" required><br><br>
+          <input type="text" id="ep_status" name="ep_status" value="{{ep.status}}" placeholder="Status" required>
+          <img src="{{ep.image}}" width=50 height="50">
+          <input type="file" id="ep_image" name="ep_image" accept="image/*"><br>
+          <button type="submit" class="btn">Save</button>
+          <a href="/products/"><div class="view"> Back </div></a><br><br>
+        </div>
+      </form>
+</body>
+</html>

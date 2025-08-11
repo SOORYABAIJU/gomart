@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Santosh Jha">
+  <title>Form</title>
+  <link rel="stylesheet" href="{% static 'css/addcountry.css'%}">
+</head>
+<body>
+  <div class="container">
+       <form action="/updatecountry/{{e.id}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+          <input type="text" placeholder="country" id="e_country" name="e_country" value="{{e.country}}"><br>
+          <input type="text" placeholder="status" id="e_status" name="e_status" value="{{e.status}}"><br>
+          <input type="submit" value="save">
+       </form>
+  </div>
+</body>
+</html>

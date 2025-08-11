@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .navigation{
+            float:right;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        div {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .nodelivery{
+            max-width: 600px;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        input{
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width:144px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="/login1/">
+        <div class="logout"><h2>LOGOUT</h2></div>
+        </a>
+    </div>
+    <div>
+        <h1>Search Results for {{ search_name }}</h1>
+        {% if order_ids %}
+            <form action="/update_status/" method="post">{%csrf_token%}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order_id in order_ids %}
+                            <tr>
+                                <td>{{ order_id.order_id }}</td>
+                                <td>
+                                    <input type="hidden" name="order_id" value="{{ order_id.order_id }}">
+                                    <select name="status" id="status" required>
+                                        <option value=" ">Pending</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <input type="submit" name="submit" id="submit" value="save">
+            </form>
+        {% else %}
+            <div class="nodelivery"><br><br><h2>No orders found for this delivery person.</h2><br><br></div>
+        {% endif %}
+        <button><a href=" ">Back to Search</a></button>
+    </div>
+</body>
+</html>
+

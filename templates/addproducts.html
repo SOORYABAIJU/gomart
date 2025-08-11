@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prodcts Form</title>
+    <link rel="stylesheet" href="{% static 'css/addproducts.css' %}">
+</head>
+<body>
+     <form action="/saveproducts/" method="post" enctype="multipart/form-data">{%csrf_token%}
+        <div class="container">
+          <h1>Products Details</h1>
+          <input type="text" name="code" id="code" placeholder="Product Code" required>
+          <input type="text" id="name" placeholder="Product Name" name="name" required>
+          <input type="number" id="price" placeholder="Price" name="price" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="number" id="total" placeholder="Total (Include tax)" name="total" required><br><br>
+          <input type="text" id="brand" name="brand" placeholder="Brand" required>
+          <input type="text" id="category" name="category" placeholder="Category" required>
+          <input type="date" id="created" name="created" placeholder="Created At" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="date" id="updated" name="updated" placeholder="Updated At" required><br><br>
+          <input type="number" id="opening_stock" name="opening_stock" placeholder="Opening Stock" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="number" id="current_stock" name="current_stock" placeholder="Current Stock" required><br><br>
+          <input type="text" id="status" name="status" placeholder="Status" required>
+          <input type="file" id="image" name="image" accept="image/*" required><br>
+          <button type="submit" class="btn">Save</button>
+          <a href="/products/"><div class="view"> Back </div></a><br><br>
+        </div>
+      </form>
+</body>
+</html>

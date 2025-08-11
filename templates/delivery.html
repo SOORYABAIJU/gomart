@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/delivery.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <div class="navigation">
+                        <a class="button" href="/login1/">
+                        <div class="logout">LOGOUT</div>
+                        </a>
+                    </div>
+                </h2>
+            </div>
+            <a href="/dashboard/"> <div class="menu-item">Dashboard</div></a><br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Product Management
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/dashboard/">Country</a></li>
+                    <li><a href="/brands/">Brands</a></li>
+                    <li><a href="/category/">Category</a></li>
+                    <li><a href="/products/">Products</a></li>
+                </ul>
+            </div><br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Order Management
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/vieworders/">Pending Orders</a></li>
+                    <li><a href="/cancelledproducts/">Cancelled orders</a></li>
+                </ul>
+            </div><br>
+             <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Delivery
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/delivery/">Delivery Picker</a></li>
+                </ul>
+            </div>
+            <br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Enquiries
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/viewcontact/">View Enquiries</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard1">
+            <h3>Delivery Picker Details</h3>
+            <a href="/adddelivery/"><div class="adddelivery">Add Delivery Picker</div> </a>
+            <div class="table-wrapper">
+                <table class="fl-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile
+                        <th>Vehicle</th>
+                        <th>vehicle_number</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    {%for i in d%}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.mobile}}</td>
+                            <td>{{i.vehicle}}</td>
+                            <td>{{i.vehicle_number}}</td>
+                            <td><a href="/editdelivery/{{i.id}}">Edit</a><br>
+                            <a href="/deletedelivery/{{i.id}}">Delete</a></td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: rgb(100, 0, 0);
+}
+
+body {
+  font-size: 18px;
+  background-image: url(https://cdn.pixabay.com/photo/2020/10/07/17/12/coffee-5635765_1280.jpg);
+}
+
+#container {
+  background-color: chocolate;
+  opacity: 93%;
+  width: 80vw;
+  max-width: 600px;
+  min-width: 300px;
+  border-radius: 15px;
+  margin: 1rem auto 1rem auto;
+  padding: 2rem 0 2rem 2rem;
+}
+
+#title {
+  text-align: center;
+  font-size: 30px;
+}
+
+#description {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 1.5rem;
+}
+
+input,
+select {
+  display: block;
+}
+
+#category,
+#status,
+#image {
+  width: 90%;
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  padding-left: 0.75rem;
+  box-sizing: border-box;
+}
+
+fieldset {
+    border: 0;
+    text-align: center;
+}
+
+#comments {
+  width: 90%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 5rem;
+  border: none;
+  padding: 0.75rem 0 0 0.75rem;
+}
+
+::placeholder {
+  color: rgb(100, 0, 0);
+}
+
+
+
+#submit {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  height: 6vh;
+  border-radius: 7.5px;
+  border: none;
+  margin-top: 20px;
+  background-color: rgb(50, 180, 50);
+}
+
+#submit:hover {
+  background-color: rgb(0, 200, 0);
+}

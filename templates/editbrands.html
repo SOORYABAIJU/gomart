@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/addbrands.css'%}">
+</head>
+<body>
+   <div id="container">
+       <header>Brand details</header>
+       <form action="/updatebrands/{{eb.id}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+            <fieldset>
+               <br/>
+               <input type="text" name="eb_brand" id="eb_brand" placeholder="brand" value="{{eb.brand}}">
+               <br/><br/>
+               <input type="text" name="eb_status" id="eb_status" placeholder="status" value="{{eb.status}}">
+               <br/><br/>
+               <input type="file" id="eb_image" name="eb_image" accept="image/*" value="{{eb.image}}"><br><br>               <br/><br/>
+               <label for="submit"></label>
+               <input type="submit" name="submit" id="submit" value="save">
+            </fieldset>
+         </form>
+      </div>
+</body>
+</html>

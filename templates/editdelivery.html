@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Santosh Jha">
+  <title>Form</title>
+  <link rel="stylesheet" href="{% static 'css/addcountry.css'%}">
+</head>
+<body>
+  <div class="container">
+       <form action="/updatedelivery/{{ed.id}}" method="post" enctype="multipart/form-data">{%csrf_token%}
+          <input type="text" placeholder="Name" id="ed_name" name="ed_name" value="{{ed.name}}"><br>
+          <input type="number" placeholder="Mobile" id="ed_mobile" name="ed_mobile" value="{{ed.mobile}}"><br>
+             <input type="text" placeholder="Vehicle" id="ed_vehicle" name="ed_vehicle" value="{{ed.vehicle}}"><br>
+          <input type="text" placeholder="Vehicle Number" id="ed_vehicle_number" name="ed_vehicle_number" value="{{ed.vehicle_number}}"><br>
+          <input type="submit" value="save">
+       </form>
+  </div>
+</body>
+</html>

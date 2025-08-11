@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="{% static 'css/productsview.css' %}">
+</head>
+<!--Changing the number in the column_# class changes the number of columns-->
+<body>
+	<div class="wrapper">
+      <section class="row">
+          {%for i in pv%}
+            <div class="container-item">
+              <div class="item">
+                <img src="{{i.image}}">
+                <div class="item-overlay">
+                  <div class="sale-tag"><span>SALE</span></div>
+                </div>
+                <div class="item-content">
+                  <div class="item-top-content">
+                    <div class="item-top-content-inner">
+                      <div class="item-product">
+                        <div class="item-top-title">
+                          <h2>{{i.name}}</h2>
+                          <p class="subdescription">
+                            Total
+                          </p>
+                        </div>
+                      </div>
+                      <div class="item-product-price">
+                        <span class="price-num">{{i.price}}</span>
+                        <p class="subdescription">{{i.total}}</p>
+                        <div class="old-price"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-add-content">
+                    <div class="item-add-content-inner">
+                      <div class="section">
+                        <a href="/addtocart/{{i.id}}" class="btn buy expand">Add to Cart</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%endfor%}
+      </section>
+    </div>
+</body>
+</html>

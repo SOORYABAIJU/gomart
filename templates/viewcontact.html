@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{% static 'css/vieworders.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .send-btn {
+        display: inline-block;
+        padding: 6px 12px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <div class="navigation">
+                        <a class="button" href="/login1/">
+                        <div class="logout">LOGOUT</div>
+                        </a>
+                    </div>
+                </h2>
+            </div>
+            <a href="/dashboard/"> <div class="menu-item">Dashboard</div></a><br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Product Management
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/dashboard/">Country</a></li>
+                    <li><a href="/brands/">Brands</a></li>
+                    <li><a href="/category/">Category</a></li>
+                    <li><a href="/products/">Products</a></li>
+                </ul>
+            </div><br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Order Management
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/vieworders/">Pending Orders</a></li>
+                    <li><a href="/cancelledproducts/">Cancelled orders</a></li>
+                </ul>
+            </div><br>
+             <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Delivery
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/delivery/">Delivery Picker</a></li>
+                </ul>
+            </div>
+            <br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Enquiries
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/viewcontact/">View Enquiries</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard1">
+          <h3>Enquiries</h3>
+          <div class="table">
+            <table class="blib-theme-table-wave">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                {%for i in vc%}
+                    <tbody>
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.subject }}</td>
+                            <td>{{ i.message }}</td>
+                            <td>
+                                <a href="mailto:{{ i.email }}?subject=Reply to your query: {{ i.subject }}&body=Hi {{ i.name }},%0D%0A%0D%0A" class="send-btn">Send Message</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                {%endfor%}
+            </table>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

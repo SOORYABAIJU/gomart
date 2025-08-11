@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/vieworders.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <div class="navigation">
+                        <a class="button" href="/login1/">
+                        <div class="logout">LOGOUT</div>
+                        </a>
+                    </div>
+                </h2>
+            </div>
+            <a href="/dashboard/"> <div class="menu-item">Dashboard</div></a><br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Product Management
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/dashboard/">Country</a></li>
+                    <li><a href="/brands/">Brands</a></li>
+                    <li><a href="/category/">Category</a></li>
+                    <li><a href="/products/">Products</a></li>
+                </ul>
+            </div><br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Order Management
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/vieworders/">Pending Orders</a></li>
+                    <li><a href="/cancelledproducts/">Cancelled orders</a></li>
+                </ul>
+            </div><br>
+             <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Delivery
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/delivery/">Delivery Picker</a></li>
+                </ul>
+            </div>
+            <br>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Enquiries
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="/viewcontact/">View Enquiries</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard1">
+          <h3>Pending Orders</h3>
+          <div class="table">
+            <table class="blib-theme-table-wave">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Address</th>
+                        <th>Shipping Charge</th>
+                        <th>Total Price</th>
+                        <th>payment Method</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                {%for i in vo%}
+                    <tbody>
+                        <tr>
+                            <td>{{ i.order_id }}</td>
+                            <td>{{ i.address }}</td>
+                            <td>{{ i.shippingcharge }}</td>
+                            <td>{{ i.total_price }}</td>
+                            <td>{{ i.payment_method }}</td>
+                            <td>{{ i.status }}</td>
+                            <td>
+                                <button><a href="/outfordelivery/">Out for delivery</a></button>
+                                <button><a href="/cancel_order/{{ i.order_id }}">Cancel</a></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                {%endfor%}
+            </table>
+          </div>
+        </div>
+    </div>
+</body>
+</html>

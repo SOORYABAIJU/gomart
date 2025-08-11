@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{%static 'css/contact.css' %}">
+</head>
+<body>
+    <div class="spectacledcoder-contact" id="contact-div">
+
+        <form action="/savecontact/" method="post" class="spectacledcoder-form">{%csrf_token%}
+            <h1 id="contact">Contact</h1>
+                <div class="spectacledcoder-input">
+                    <label id="l-name" class="d-label">Name</label>
+                    <input type="text" name="name" id="name" value="" onfocus="labelmove('name')">
+                </div>
+                <div class="spectacledcoder-input">
+                    <label id="l-email" class="d-label">Email Address</label>
+                    <input type="email" name="email" id="email" onfocus="labelmove('email')">
+                </div>
+                <div class="spectacledcoder-input">
+                    <label id="l-sub" class="d-label">Subject</label>
+                    <input type="text" name="subject" id="subject" onfocus="labelmove('subject')">
+                </div>
+
+                <div class="spectacledcoder-tarea">
+                    <label id="l-tarea" class="d-tarea-label">Message</label>
+                    <textarea name="message" id="message" onfocus="labelmove('message')"></textarea>
+                </div>
+
+                <input type="submit" value="Send Message">
+
+        </form>
+    </div>
+    <script src="{%static 'js/contact.js' %}"></script>
+</body>
+</html>
+
+
+
